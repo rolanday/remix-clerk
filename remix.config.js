@@ -6,9 +6,9 @@ module.exports = {
   // serverBuildPath: "build/index.js",
   // publicPath: "/build/",
   future: {
-    v2_errorBoundary: true,
+    v2_errorBoundary: false,
     v2_meta: true,
-    v2_normalizeFormMethod: true,
+    v2_normalizeFormMethod: false,
     v2_routeConvention: false,
     unstable_dev: true,
   },

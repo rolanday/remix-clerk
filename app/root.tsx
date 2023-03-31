@@ -1,3 +1,4 @@
+import { ClerkCatchBoundary } from "@clerk/remix";
 import {
   Links,
   LiveReload,
@@ -6,8 +7,11 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-
-export default function App() {
+import { ClerkApp } from "@clerk/remix";
+import type { LoaderFunction } from "@remix-run/node";
+import { rootAuthLoader } from "@clerk/remix/ssr.server";
+export const loader: LoaderFunction = (args) => rootAuthLoader(args);
+function App() {
   return (
     <html lang="en">
       <head>
@@ -25,3 +29,5 @@ export default function App() {
     </html>
   );
 }
+export default ClerkApp(App);
+export const CatchBoundary = ClerkCatchBoundary();
